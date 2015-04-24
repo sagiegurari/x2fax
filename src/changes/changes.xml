@@ -8,7 +8,7 @@
 	</properties>
 
 	<body>
-		<release version="0.09" date="2015-04-24" description="Migrate To Github">
+		<release version="0.0.9" date="2015-04-24" description="Migrate To Github">
 			<action dev="Sagie Gur-Ari" type="update">
 				<![CDATA[
 					Updated docs to remove reference of sourceforge as project is now hosted in github.
@@ -16,7 +16,7 @@
 			</action>
 		</release>
 
-		<release version="0.08" date="2013-12-13">
+		<release version="0.0.8" date="2013-12-13">
 			<action dev="Sagie Gur-Ari" type="update">
 				<![CDATA[
 					Upgraded fax4j version.
@@ -29,7 +29,7 @@
 			</action>
 		</release>
 
-		<release version="0.07" date="2013-12-02" description="New Functionality">
+		<release version="0.0.7" date="2013-12-02" description="New Functionality">
 			<action dev="Sagie Gur-Ari" type="update">
 				<![CDATA[
 					Added support for multi part HTTP requests.
@@ -47,7 +47,7 @@
 			</action>
 		</release>
 
-		<release version="0.06" date="2013-09-12">
+		<release version="0.0.6" date="2013-09-12">
 			<action dev="Sagie Gur-Ari" type="update">
 				<![CDATA[
 					Modified code to return generic fax bridges instead of specific types to allow easier extending of existing x2fax implementations.
@@ -70,7 +70,7 @@
 			</action>
 		</release>
 
-		<release version="0.05" date="2013-09-06" description="Documentation Only Release">
+		<release version="0.0.5" date="2013-09-06" description="Documentation Only Release">
 			<action dev="Sagie Gur-Ari" type="update">
 				<![CDATA[
 					Documentation changes.
@@ -78,7 +78,7 @@
 			</action>
 		</release>
 
-		<release version="0.04" date="2013-09-01">
+		<release version="0.0.4" date="2013-09-01">
 			<action dev="Sagie Gur-Ari" type="fix">
 				<![CDATA[
 					Fixed startup scripts.
@@ -86,7 +86,7 @@
 			</action>
 		</release>
 
-		<release version="0.03" date="2013-09-01">
+		<release version="0.0.3" date="2013-09-01">
 			<action dev="Sagie Gur-Ari" type="update">
 				<![CDATA[
 					Updated fax4j version.
@@ -94,7 +94,7 @@
 			</action>
 		</release>
 
-		<release version="0.02" date="2013-09-01" description="Documentation Only Release">
+		<release version="0.0.2" date="2013-09-01" description="Documentation Only Release">
 			<action dev="Sagie Gur-Ari" type="fix">
 				<![CDATA[
 					Minor documentation fixes.
@@ -102,7 +102,7 @@
 			</action>
 		</release>
 
-		<release version="0.01" date="2013-08-31" description="Initial Release">
+		<release version="0.0.1" date="2013-08-31" description="Initial Release">
 			<action dev="Sagie Gur-Ari" type="add">
 				<![CDATA[
 					Initial Release.
