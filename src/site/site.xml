@@ -5,7 +5,6 @@
 	<body>
 		<menu name="fax4j-x2fax">
 			<item name="Overview" href="/index.html"/>
-			<item name="Download" href="https://github.com/sagiegurari/x2fax/releases/latest"/>
 			<item name="Installation/Setup Instructions" href="/setup_instructions.html"/>
 			<item name="Change Log" href="/changes-report.html"/>
 		</menu>

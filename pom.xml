@@ -6,12 +6,12 @@
 
 	<groupId>net.sf.fax4j</groupId>
 	<artifactId>fax4j-x2fax</artifactId>
-	<version>0.0.9</version>
+	<version>0.1.0</version>
 	<packaging>jar</packaging>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<fax4j.version>0.42.9</fax4j.version>
+		<fax4j.version>0.43.1</fax4j.version>
 	</properties>
 
 	<name>fax4j-x2fax</name>
