@@ -1,0 +1,113 @@
+<document xmlns="http://maven.apache.org/changes/1.0.0"
+		  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		  xsi:schemaLocation="http://maven.apache.org/changes/1.0.0 http://maven.apache.org/xsd/changes-1.0.0.xsd">
+
+	<properties>
+		<title>Change Log</title>
+		<author email="sgurari@yahoo.com">Sagie Gur-Ari</author>
+	</properties>
+
+	<body>
+		<release version="0.09" date="2015-04-24" description="Migrate To Github">
+			<action dev="Sagie Gur-Ari" type="update">
+				<![CDATA[
+					Updated docs to remove reference of sourceforge as project is now hosted in github.
+				]]>
+			</action>
+		</release>
+
+		<release version="0.08" date="2013-12-13">
+			<action dev="Sagie Gur-Ari" type="update">
+				<![CDATA[
+					Upgraded fax4j version.
+				]]>
+			</action>
+			<action dev="Sagie Gur-Ari" type="add">
+				<![CDATA[
+					Added CLIRR report as part of the maven build.
+				]]>
+			</action>
+		</release>
+
+		<release version="0.07" date="2013-12-02" description="New Functionality">
+			<action dev="Sagie Gur-Ari" type="update">
+				<![CDATA[
+					Added support for multi part HTTP requests.
+				]]>
+			</action>
+			<action dev="Sagie Gur-Ari" type="update">
+				<![CDATA[
+					Added support for JSON HTTP responses (The web2fax servlet will now return JSON object by default).
+				]]>
+			</action>
+			<action dev="Sagie Gur-Ari" type="update">
+				<![CDATA[
+					Upgraded fax4j version.
+				]]>
+			</action>
+		</release>
+
+		<release version="0.06" date="2013-09-12">
+			<action dev="Sagie Gur-Ari" type="update">
+				<![CDATA[
+					Modified code to return generic fax bridges instead of specific types to allow easier extending of existing x2fax implementations.
+				]]>
+			</action>
+			<action dev="Sagie Gur-Ari" type="add">
+				<![CDATA[
+					If -help parameter is provided to any of the start scripts, the instructions text file will be printed.
+				]]>
+			</action>
+			<action dev="Sagie Gur-Ari" type="add">
+				<![CDATA[
+					Initial work on JUnit test cases.
+				]]>
+			</action>
+			<action dev="Sagie Gur-Ari" type="update">
+				<![CDATA[
+					Upgraded fax4j version.
+				]]>
+			</action>
+		</release>
+
+		<release version="0.05" date="2013-09-06" description="Documentation Only Release">
+			<action dev="Sagie Gur-Ari" type="update">
+				<![CDATA[
+					Documentation changes.
+				]]>
+			</action>
+		</release>
+
+		<release version="0.04" date="2013-09-01">
+			<action dev="Sagie Gur-Ari" type="fix">
+				<![CDATA[
+					Fixed startup scripts.
+				]]>
+			</action>
+		</release>
+
+		<release version="0.03" date="2013-09-01">
+			<action dev="Sagie Gur-Ari" type="update">
+				<![CDATA[
+					Updated fax4j version.
+				]]>
+			</action>
+		</release>
+
+		<release version="0.02" date="2013-09-01" description="Documentation Only Release">
+			<action dev="Sagie Gur-Ari" type="fix">
+				<![CDATA[
+					Minor documentation fixes.
+				]]>
+			</action>
+		</release>
+
+		<release version="0.01" date="2013-08-31" description="Initial Release">
+			<action dev="Sagie Gur-Ari" type="add">
+				<![CDATA[
+					Initial Release.
+				]]>
+			</action>
+		</release>
+	</body>
+</document>

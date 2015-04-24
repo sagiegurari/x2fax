@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<document>
+	<properties>
+		<title>Installation/Setup Instructions</title>
+	</properties>
+	<body>
+		<section name="Email Server - Apache JAMES">
+			<p>
+				This bridge component enables to send fax based on recieved mails.<br/>
+				This bridge is meant for installation on apache james email servers.<br/>
+				<br/>
+				Installation Instructions<br/>
+				1. Install Apache JAMES and validate it works properly<br/>
+				2. Put all jars from lib directory in [Apache JAMES installation directory]/conf/lib<br/>
+				3. Update the mailet configuration as follows:<br/>
+				   3.1 copy the mailetcontainer-template.conf found in the [Apache JAMES installation directory]/conf directory<br/>
+				   to same directory with new name: mailetcontainer.conf<br/>
+				   3.2 Create a processor for fax mails as follows<br/>
+				<br/>
+				   &lt;processor state="fax" enableJmx="true"&gt;<br/>
+					&nbsp;&nbsp;&nbsp;&lt;mailet match="All" class="org.fax4j.x2fax.email.james.EMail2FaxJamesMailet"/&gt;<br/>
+				   &lt;/processor&gt;<br/>
+				<br/>
+				   In this example, the fax processor calls the EMail2FaxJamesMailet mailet which is in charge to send the fax.<br/>
+				   All mails handled by this processor go through this mailet.<br/>
+				   You can than add more mailet for this fax processor to continue handling the mail, for examle you may add<br/>
+				   &lt;mailet match="All" class="Null" /&gt;<br/>
+				   after the fax mailet to delete the mail.<br/>
+				   In similar way you can add custom mailets.<br/>
+				   so complete example of processor with both mailets would be:<br/>
+				<br/>
+				   &lt;processor state="fax" enableJmx="true"&gt;<br/>
+					&nbsp;&nbsp;&nbsp;&lt;mailet match="All" class="org.fax4j.x2fax.email.james.EMail2FaxJamesMailet"/&gt;<br/>
+					&nbsp;&nbsp;&nbsp;&lt;mailet match="All" class="Null" /&gt;<br/>
+				   &lt;/processor&gt;<br/>
+				<br/>
+				   3.3 Create a routing mailet that will route specific mails based on the relevant criteria to the fax processor.<br/>
+				   In case of default configuration, the matcher can select only mails that have a subject that starts with fax,<br/>
+				   in which case the mailet configuration would be:<br/>
+				<br/>
+				   &lt;mailet match="SubjectStartsWith=fax:" class="ToProcessor"&gt;<br/>
+					&nbsp;&nbsp;&nbsp;&lt;processor&gt;fax&lt;/processor&gt;<br/>
+				   &lt;/mailet&gt;<br/>
+				<br/>
+				   This configuration needs to be in the root processor.<br/>
+				<br/>
+				The default mail parameters the mailet expects are as follows:<br/>
+					-Subject line: fax:[number] where number is the target address<br/>
+					-From email address would be used as sender email<br/>
+					-First attachment (or in case of none, the body text) would be used as the fax data <br/>
+				<br/>
+				This may change in case the mail parser was changed via fax4j configuration.<br/>
+				More information on fax4j configuration can be found at: <a href="https://sagiegurari.github.io/fax4j/apidocs/overview-summary.html#overview_description">fax4j tutorial</a><br/>
+			</p>
+		</section>
+
+		<section name="HTTP - Jetty Standalone Server">
+			<p>
+				The Jetty HTTP server enables to expose faxing capabilities via HTTP protocol.<br/>
+				<br/>
+				This default parser expects a multi part HTTP request as follows:<br/>
+					-file [file content]<br/>
+				    -filename [file name without path]<br/>
+				    -priority [priority value as defined in the enum]<br/>
+				    -targetaddress [target address]<br/>
+					-targetname [target name]<br/>
+					-sendername [sender name]<br/>
+					-senderfaxnumber [sender fax number]<br/>
+					-senderemail [sender email]<br/>
+				<br/>
+				This may change in case the HTTP request parser was changed via fax4j configuration.<br/>
+				More information on fax4j configuration can be found at: <a href="https://sagiegurari.github.io/fax4j/apidocs/overview-summary.html#overview_description">fax4j tutorial</a><br/>
+			</p>
+		</section>
+
+		<section name="HTTP - Deployable WAR (Web2Fax.war)">
+			<p>
+				The Web2Fax.war enables to expose faxing capabilities on top of HTTP web servers.<br/>
+				<br/>
+				This default parser expects a multi part HTTP request as follows:<br/>
+				    -file [file content]<br/>
+				    -filename [file name without path]<br/>
+				    -priority [priority value as defined in the enum]<br/>
+				    -targetaddress [target address]<br/>
+					-targetname [target name]<br/>
+					-sendername [sender name]<br/>
+					-senderfaxnumber [sender fax number]<br/>
+					-senderemail [sender email]<br/>
+				<br/>
+				This may change in case the HTTP request parser was changed via fax4j configuration.<br/>
+				More information on fax4j configuration can be found at: <a href="https://sagiegurari.github.io/fax4j/apidocs/overview-summary.html#overview_description">fax4j tutorial</a><br/>
+			</p>
+		</section>
+
+		<section name="CLI - Command Line Utility">
+			<p>
+				The SendFax utility enables to send fax based on input parameters.<br/>
+				<br/>
+				The default command line arguments the CLI expects are as follows:<br/>
+					-file [full file name]<br/>
+					-priority [priority value as defined in the enum]<br/>
+					-target_address [target address]<br/>
+					-target_name [target name]<br/>
+					-sender_name [sender name]<br/>
+					-sender_fax_number [sender fax number]<br/>
+					-sender_email [sender email]<br/>
+					-property:[property name] [property value]<br/>
+				<br/>
+				This may change in case the command line arguments parser was changed via fax4j configuration.<br/>
+				More information on fax4j configuration can be found at: <a href="https://sagiegurari.github.io/fax4j/apidocs/overview-summary.html#overview_description">fax4j tutorial</a><br/>
+			</p>
+		</section>
+	</body>
+</document>

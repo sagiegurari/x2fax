@@ -1,0 +1,40 @@
+
+This bridge component enables to send fax based on recieved mails.
+This bridge is meant for installation on apache james email servers.
+
+Installation Instructions
+1. Install Apache JAMES and validate it works properly
+2. Put all jars from lib directory in <Apache JAMES installation directory>/conf/lib
+3. Update the mailet configuration as follows:
+   3.1 copy the mailetcontainer-template.conf found in the <Apache JAMES installation directory>/conf directory
+   to same directory with new name: mailetcontainer.conf
+   3.2 Create a processor for fax mails as follows
+   <processor state="fax" enableJmx="true">
+       <mailet match="All" class="org.fax4j.x2fax.email.james.EMail2FaxJamesMailet"/>
+   </processor>
+   In this example, the fax processor calls the EMail2FaxJamesMailet mailet which is in charge to send the fax.
+   All mails handled by this processor go through this mailet.
+   You can than add more mailet for this fax processor to continue handling the mail, for examle you may add
+   <mailet match="All" class="Null" />
+   after the fax mailet to delete the mail.
+   In similar way you can add custom mailets.
+   so complete example of processor with both mailets would be:
+   <processor state="fax" enableJmx="true">
+       <mailet match="All" class="org.fax4j.x2fax.email.james.EMail2FaxJamesMailet"/>
+       <mailet match="All" class="Null" />
+   </processor>
+   3.3 Create a routing mailet that will route specific mails based on the relevant criteria to the fax processor.
+   In case of default configuration, the matcher can select only mails that have a subject that starts with fax,
+   in which case the mailet configuration would be:
+   <mailet match="SubjectStartsWith=fax:" class="ToProcessor">
+      <processor>fax</processor>
+   </mailet>
+   This configuration needs to be in the root processor.
+
+The default mail parameters the mailet expects are as follows:
+    -Subject line: fax:[number] where number is the target address
+    -From email address would be used as sender email
+    -First attachment (or in case of none, the body text) would be used as the fax data 
+
+This may change in case the mail parser was changed via fax4j configuration.
+More information on fax4j configuration can be found at: https://sagiegurari.github.io/fax4j/apidocs/overview-summary.html

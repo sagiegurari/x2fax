@@ -1,0 +1,126 @@
+<html>
+<head>
+<title>fax4j-x2fax - Tester</title>
+<HTA:APPLICATION 
+     ID="fax4j-x2fax-tester"
+     APPLICATIONNAME="fax4j-x2fax-tester"
+     SCROLL="yes"
+     SINGLEINSTANCE="yes"
+>
+
+<script language="JavaScript">
+function testFaxViaHTTP()
+{
+	var xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	xmlhttp.open("POST",url.value+"?file=file.txt&target_address="+target_address.value+"&target_name="+target_name.value+"&sender_name="+sender_name.value+"&sender_fax_number="+sender_fax_number.value+"&sender_email="+sender_email.value,false);
+	xmlhttp.send(file_text.value);
+	
+	output.value=xmlhttp.responseText;
+}
+function testFaxViaCLI()
+{
+	var command=".\\SendFax.bat";
+	var shell=new ActiveXObject("wscript.shell");
+	shell.CurrentDirectory=window.location.pathname+"\\..";
+	var filePath=window.location.pathname+"\\..\\testfax.txt";
+	var fileSystem=new ActiveXObject("Scripting.FileSystemObject");
+	var file=fileSystem.CreateTextFile(filePath,true);
+	file.Write(file_text.value);
+	file.Close();
+	command=command+" -file \""+filePath+"\"";
+	command=command+getCLIParameter(target_address,"-target_address");
+	command=command+getCLIParameter(target_name,"-target_name");
+	command=command+getCLIParameter(sender_name,"-sender_name");
+	command=command+getCLIParameter(sender_fax_number,"-sender_fax_number");
+	command=command+getCLIParameter(sender_email,"-sender_email");
+	var shell=new ActiveXObject("wscript.shell");
+	shell.CurrentDirectory=cli_dir.value;
+	shell.Run(command);
+}
+function getCLIParameter(control,flag)
+{
+	var output="";
+	var value=control.value;
+	if((value!=null)&&(value.length>0))
+	{
+		output=" "+flag+" "+value;
+	}
+
+	return output;
+}
+</script>
+</head>
+<body>
+This is a simple testing tool for the different x2fax bridges.<br>
+This tool is very basic and only handles tests based on default fax4j configuration as well as the default directory structure.<br>
+This tool is not supported and may be broken with future changes of the x2fax.
+<hr>
+<table border="1">
+	<tr>
+		<td>
+			<center><h2>&nbsp;&nbsp;Web Tester&nbsp;&nbsp;</h2></center>
+			<table>
+				<tr>
+					<td>
+						URL:
+					</td>
+					<td>
+						<input type="text" name="url" value="http://localhost:80/Web2Fax" style="width:300px">
+					</td>
+					<td>
+						<input type="button" value="Test" onclick="testFaxViaHTTP()">
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td>
+			<center><h2>&nbsp;&nbsp;CLI Tester&nbsp;&nbsp;</h2></center>
+			<table>
+				<tr>
+					<td>
+						Dir:
+					</td>
+					<td>
+						<input type="text" name="cli_dir" value="..\\..\\..\\..\\..\\target\\servers\\cli" style="width:300px">
+					</td>
+					<td>
+						<input type="button" value="Test" onclick="testFaxViaCLI()">
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+<hr>
+<h2>Fax Job Data</h2>
+<table>
+	<tr>
+		<td>Target Address:</td>
+		<td><input type="text" name="target_address" value="1234567890" style="width:350px"></td>
+	</tr>
+	<tr>
+		<td>Target Name:</td>
+		<td><input type="text" name="target_name" value="" style="width:350px"></td>
+	</tr>
+	<tr>
+		<td>Sender Name:</td>
+		<td><input type="text" name="sender_name" value="" style="width:350px"></td>
+	</tr>
+	<tr>
+		<td>Sender Fax Number:</td>
+		<td><input type="text" name="sender_fax_number" value="" style="width:350px"></td>
+	</tr>
+	<tr>
+		<td>Sender EMail:</td>
+		<td><input type="text" name="sender_email" value="" style="width:350px"></td>
+	</tr>
+	<tr>
+		<td>File Text:</td>
+		<td><textarea name="file_text" rows="3" cols="50">Some Text</textarea></td>
+	</tr>
+</table>
+<hr>
+<h2>Test Output</h2>
+<textarea name="output" rows="8" cols="75"></textarea>
+</body>
+</html>

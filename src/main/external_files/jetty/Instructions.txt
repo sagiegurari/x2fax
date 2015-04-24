@@ -1,0 +1,15 @@
+
+The Jetty HTTP server enables to expose faxing capabilities via HTTP protocol.
+
+This default parser expects a multi part HTTP request as follows:
+    -file [file content]
+    -filename [file name without path]
+    -priority [priority value as defined in the enum]
+    -targetaddress [target address]
+    -targetname [target name]
+    -sendername [sender name]
+    -senderfaxnumber [sender fax number]
+    -senderemail [sender email]
+
+This may change in case the HTTP request parser was changed via fax4j configuration.
+More information on fax4j configuration can be found at: https://sagiegurari.github.io/fax4j/apidocs/overview-summary.html

@@ -1,0 +1,15 @@
+
+The SendFax utility enables to send fax based on input parameters.
+
+The default command line arguments the CLI expects are as follows:
+    -file [full file name]
+    -priority [priority value as defined in the enum]
+    -target_address [target address]
+    -target_name [target name]
+    -sender_name [sender name]
+    -sender_fax_number [sender fax number]
+    -sender_email [sender email]
+    -property:[property name] [property value] 
+
+This may change in case the command line arguments parser was changed via fax4j configuration.
+More information on fax4j configuration can be found at: https://sagiegurari.github.io/fax4j/apidocs/overview-summary.html
