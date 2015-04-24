@@ -1,0 +1,4 @@
+org.fax4j.x2fax.cli
+org.fax4j.x2fax.email.james
+org.fax4j.x2fax.http.servlet
+org.fax4j.x2fax.test
