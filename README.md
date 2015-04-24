@@ -2,7 +2,7 @@
 The x2fax (fax4j sub project) is a set of standalone servers and deployable components which enable to provide x2fax capabilities.
 
 ## Introduction
-The fax4j <a href="https://github.com/sagiegurari/x2fax">x2fax</a> is a set of standalone servers and deployable components which enable to provide x2fax services.<br>
+The fax4j <a href="http://sagiegurari.github.io/x2fax/">x2fax</a> is a set of standalone servers and deployable components which enable to provide x2fax services.<br>
 Already comes with built-in email component to enhance email servers to provide email2fax services and HTTP servers and WARs to convert any web server to a web2fax bridge.<br> 
 You can get the latest version from <a href="https://github.com/sagiegurari/x2fax/releases/latest">here</a> <br>
 The x2fax is a sub project of the <a href="https://github.com/sagiegurari/fax4j">fax4j</a> Java faxing library.
