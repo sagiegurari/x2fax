@@ -12,7 +12,7 @@ build_script:
   - mvn clean install site
 
 artifacts:
-  - path: 'target\x2fax-*-full.zip'
+  - path: 'target\fax4j-x2fax-*-full.zip'
 
 #environment variables
 environment:
