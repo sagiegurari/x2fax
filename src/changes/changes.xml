@@ -8,6 +8,14 @@
 	</properties>
 
 	<body>
+		<release version="0.1.3" date="2017-03-11" description="Cloud Build Support">
+			<action dev="Sagie Gur-Ari" type="add">
+				<![CDATA[
+					New cloud based build support.
+				]]>
+			</action>
+		</release>
+
 		<release version="0.1.2" date="2017-03-11" description="Dependencies Upgrade">
 			<action dev="Sagie Gur-Ari" type="update">
 				<![CDATA[
