@@ -8,6 +8,14 @@
 	</properties>
 
 	<body>
+		<release version="0.1.2" date="2017-03-11" description="Dependencies Upgrade">
+			<action dev="Sagie Gur-Ari" type="update">
+				<![CDATA[
+					Upgraded fax4j version.
+				]]>
+			</action>
+		</release>
+
 		<release version="0.1.1" date="2015-08-28" description="Documentation Only Release">
 			<action dev="Sagie Gur-Ari" type="update">
 				<![CDATA[
